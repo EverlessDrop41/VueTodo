@@ -23,9 +23,24 @@
       </div>
     </nav>
     <div class="container">
+      <br>
+      <h1 style="text-align: center;">Todo App</h1>
+
       <div id="app">
-        <p>{{ message }}</p>
-        <input v-model="message">
+        <div class="row">
+          <input class="nine columns" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+          <button class="button-primary three columns">Add</button>
+        </div>
+
+        <ul>
+          <li style="clear: both" v-for="todo in todos">
+            <span >{{ todo.name }}</span>
+
+            <input type="checkbox" v-model="todo.completed">
+
+            <button style="float: right;" v-on:click="removeTodo($index)">Delete</button>
+          </li>
+        </ul>
       </div>
     </div>
   </body>

@@ -1,1 +1,1 @@
-webpackJsonp([0],[function(e,a,s){"use strict";var n=s(1);new n({el:"#app",data:{message:"Hello Vue.js!"}})}]);
+webpackJsonp([0],[function(o,e,d){"use strict";var t=d(1);new t({el:"#app",data:{newTodo:"",todos:[{name:"Add some todos",completed:!1},{name:"Add some more todos",completed:!1},{name:"Setup basic todo app",completed:!0}]},methods:{addTodo:function(){var o=this.newTodo.trim();o&&(this.todos.push({name:o,completed:!1}),this.newTodo="")},removeTodo:function(o){this.todos.splice(o,1)}}})}]);
