@@ -1,0 +1,1 @@
+webpackJsonp([0],[function(e,a,s){"use strict";var n=s(1);new n({el:"#app",data:{message:"Hello Vue.js!"}})}]);
