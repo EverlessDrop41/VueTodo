@@ -2,6 +2,7 @@
 var gulp    = require('gulp');
 var gutil   = require('gulp-util');
 var sass    = require('gulp-sass');
+var exec    = require('gulp-exec');
 var cssmin  = require('gulp-cssmin');
 var rename  = require('gulp-rename');
 var webpack = require('webpack-stream');
@@ -36,6 +37,11 @@ gulp.task('default', ['sass', 'mincss', 'webpack'], function() {
 });
 
 gulp.task('watch', function () {
+  exec('gulp', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
   gulp.watch(paths.webpack, ['webpack']);
   gulp.watch(paths.sass, ['sass', 'mincss']);
 });
