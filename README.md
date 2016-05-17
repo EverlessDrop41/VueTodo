@@ -2,25 +2,29 @@
 A todo app built using node, express, mongodb and vuejs
 
 # Setup
-Install npm packages 
+Install npm packages
 
 ```
 npm install
 ```
 
-Make sure you have webpack installed
-```
-npm install webpack -g
-```
-
 # Build
+
+Make sure you have gulp installed
+```
+npm install gulp -g
+```
 
 Build the scripts
 ```
-webpack --watch
+gulp
 ```
 
-The `--watch` will auto build on any changes, remove it for a one time build.
+If you are developing run the watch task to check for changes and auto build
+
+```
+gulp watch
+```
 
 # Run
 
