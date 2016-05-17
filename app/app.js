@@ -24,4 +24,4 @@ new Vue({
       this.todos.splice(index, 1)
     }
   }
-})
+});

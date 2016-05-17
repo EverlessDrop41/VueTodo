@@ -13,6 +13,10 @@
     "express": "^4.13.4"
   },
   "devDependencies": {
-    "webpack": "^1.13.0"
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-util": "^3.0.7",
+    "webpack": "^1.13.0",
+    "webpack-stream": "^3.2.0"
   }
 }

@@ -6,10 +6,8 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/app.css">
   </head>
 
   <body>
@@ -33,12 +31,12 @@
         </div>
 
         <ul>
-          <li style="clear: both" v-for="todo in todos">
-            <span >{{ todo.name }}</span>
+          <li class="clear" v-for="todo in todos | orderBy 'completed'">
+            <span v-bind:class="{'strike': todo.completed}">{{ todo.name }}</span>
 
             <input type="checkbox" v-model="todo.completed">
 
-            <button style="float: right;" v-on:click="removeTodo($index)">Delete</button>
+            <button class="right" v-on:click="removeTodo($index)">Delete</button>
           </li>
         </ul>
       </div>
