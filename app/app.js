@@ -2,7 +2,7 @@
 
 var Vue = require('vue');
 
-new Vue({
+var todo_vue = new Vue({
   el: '#app',
   data: {
     newTodo: '',
@@ -25,3 +25,22 @@ new Vue({
     }
   }
 });
+
+//Generate sample values
+function makeid()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
+for (var i = 0; i < 7; i++) {
+  todo_vue.todos.$set(i, {
+    name: makeid(),
+    completed: false
+  });
+}

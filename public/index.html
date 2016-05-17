@@ -22,22 +22,20 @@
     </nav>
     <div class="container">
       <br>
-      <h1 style="text-align: center;">Todo App</h1>
+      <h1 class="center">Todo App</h1>
 
       <div id="app">
         <div class="row">
           <input class="nine columns" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
-          <button class="button-primary three columns">Add</button>
+          <button class="button-primary three columns" v-on:click="addTodo">Add</button>
         </div>
 
-        <ul>
-          <li class="clear" v-for="todo in todos | orderBy 'completed'">
-            <span v-bind:class="{'strike': todo.completed}">{{ todo.name }}</span>
-
-            <input type="checkbox" v-model="todo.completed">
-
-            <button class="right" v-on:click="removeTodo($index)">Delete</button>
-          </li>
+        <div class="todo-list">
+          <div class="todo-item row" v-for="todo in todos | orderBy 'completed'">
+            <input class="one column" type="checkbox" v-model="todo.completed">
+            <span class="todo-item-content eight columns" v-bind:class="{'strike': todo.completed}">{{ todo.name }}</span>
+            <button class="right three columns" v-on:click="removeTodo($index)">Delete</button>
+          </div>
         </ul>
       </div>
     </div>

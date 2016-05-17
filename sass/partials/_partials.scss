@@ -1,4 +1,5 @@
-@import "_navbar";
+@import "navbar";
+@import "todo-list";
 
 .clear {
   clear: both;
@@ -15,4 +16,8 @@
 .strike {
   text-decoration: line-through;
   color: #DDD;
+}
+
+.center {
+  text-align: center;
 }

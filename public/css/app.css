@@ -41,6 +41,11 @@
     margin-left: auto;
     margin-right: auto; } }
 
+.todo-item {
+  clear: both; }
+  .todo-item .todo-item-content {
+    text-align: center; }
+
 .clear {
   clear: both; }
 
@@ -53,6 +58,9 @@
 .strike {
   text-decoration: line-through;
   color: #DDD; }
+
+.center {
+  text-align: center; }
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
