@@ -37,5 +37,6 @@ gulp.task('default', ['sass', 'mincss', 'webpack'], function() {
 
 gulp.task('watch', ['default'],function () {
   gulp.watch(paths.webpack, ['webpack']);
-  gulp.watch(paths.sass, ['sass', 'mincss']);
+  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.css, ['mincss'])
 });
