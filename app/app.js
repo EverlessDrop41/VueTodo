@@ -7,9 +7,9 @@ var todo_vue = new Vue({
   data: {
     newTodo: '',
     todos: [
-      { _uid: "4sAg78", name: 'Add some todos', completed: false },
-      { _uid: "5fD9Jg", name: 'Add some more todos', completed:false },
-      { _uid: "1sK920", name: 'Setup basic todo app', completed: true }
+      { _id: "4sAg78", name: 'Add some todos', completed: false },
+      { _id: "5fD9Jg", name: 'Add some more todos', completed:false },
+      { _id: "1sK920", name: 'Setup basic todo app', completed: true }
     ]
   },
   methods: {
@@ -20,11 +20,11 @@ var todo_vue = new Vue({
         this.newTodo = ''
       }
     },
-    removeTodo: function (uid) {
+    removeTodo: function (id) {
       for (var i = 0; i < this.todos.length; i++) {
         var currentTodoToCheck = this.todos[i];
 
-        if (currentTodoToCheck._uid == uid) {
+        if (currentTodoToCheck._id == id) {
           this.todos.splice(i, 1);
         }
       }
@@ -46,7 +46,7 @@ function makeid()
 
 for (var i = 3; i < 10; i++) {
   todo_vue.todos.$set(i, {
-    _uid: makeid(),
+    _id: makeid(),
     name: makeid(),
     completed: Math.random() >= 0.8
   });

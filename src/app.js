@@ -10,7 +10,7 @@ require("./database.js");
 
 app.use(body_parser.json());
 
-app.use('/', express.static('public'));
+app.use('/', express.static('../public'));
 app.use('/api', apiRouter);
 
 var port = process.env.PORT || 3000;

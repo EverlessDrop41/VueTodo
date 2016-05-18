@@ -1,4 +1,4 @@
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8">
     <title>Todo List</title>
@@ -31,15 +31,15 @@
         <button class="button-primary three columns" v-on:click="addTodo">Add</button>
       </div>
       <div class="todo-list">
-        <div v-bind:class="{'completed': todo.completed}" class="todo-item row" v-for="(index, todo) in todos | orderBy 'completed' 'name'" track-by="_uid">
+        <div v-bind:class="{'completed': todo.completed}" class="todo-item row" v-for="(index, todo) in todos | orderBy 'completed' 'name'" track-by="_id">
           <input class="one column todo-checkbox" type="checkbox" v-model="todo.completed">
           <span class="todo-content eight columns" >{{ todo.name }}</span>
-          <button class="todo-btn right three columns" v-on:click="removeTodo(todo._uid)">Delete</button>
+          <button class="todo-btn right three columns" v-on:click="removeTodo(todo._id)">Delete</button>
         </div>
       </div>
     </div>
 
   </body>
-  <script src="/scripts/vendor.bundle.js"></script>
-  <script src="/scripts/todo.bundle.js"></script>
+  <script src="./scripts/vendor.bundle.js"></script>
+  <script src="./scripts/todo.bundle.js"></script>
 </html>
