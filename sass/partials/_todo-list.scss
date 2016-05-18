@@ -1,0 +1,19 @@
+.todo-item {
+  clear: both;
+  &.completed {
+    .todo-content {
+      text-decoration: line-through;
+      color: #DDD;
+    }
+    .todo-btn {
+      color: #AAA;
+      border-color: #BBB;
+    }
+  }
+  .todo-content {
+    text-align: center;
+  }
+  .todo-checkbox {
+    text-align: center;
+  }
+}
