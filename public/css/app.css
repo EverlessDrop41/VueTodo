@@ -43,7 +43,15 @@
 
 .todo-item {
   clear: both; }
-  .todo-item .todo-item-content {
+  .todo-item.completed .todo-content {
+    text-decoration: line-through;
+    color: #DDD; }
+  .todo-item.completed .todo-btn {
+    color: #AAA;
+    border-color: #BBB; }
+  .todo-item .todo-content {
+    text-align: center; }
+  .todo-item .todo-checkbox {
     text-align: center; }
 
 .clear {
@@ -56,8 +64,7 @@
   font-weight: bold; }
 
 .strike {
-  text-decoration: line-through;
-  color: #DDD; }
+  text-decoration: line-through; }
 
 .center {
   text-align: center; }

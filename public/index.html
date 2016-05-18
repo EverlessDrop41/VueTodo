@@ -1,15 +1,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Todo List</title>
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Emily Peregrine">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="english" />
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" href="/css/app.min.css">
   </head>
-
   <body>
     <nav class="navbar">
       <div class="container">
@@ -20,27 +20,26 @@
         </div>
       </div>
     </nav>
+
     <div class="container">
-      <br>
-      <h1 class="center">Todo App</h1>
+    <br>
+    <h1 class="center nine columns">Todo App</h1>
 
-      <div id="app">
-        <div class="row">
-          <input class="nine columns" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
-          <button class="button-primary three columns" v-on:click="addTodo">Add</button>
+    <div id="app">
+      <div class="row">
+        <input class="nine columns" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+        <button class="button-primary three columns" v-on:click="addTodo">Add</button>
+      </div>
+      <div class="todo-list">
+        <div v-bind:class="{'completed': todo.completed}" class="todo-item row" v-for="(index, todo) in todos | orderBy 'completed' 'name'" track-by="_uid">
+          <input class="one column todo-checkbox" type="checkbox" v-model="todo.completed">
+          <span class="todo-content eight columns" >{{ todo.name }}</span>
+          <button class="todo-btn right three columns" v-on:click="removeTodo(todo._uid)">Delete</button>
         </div>
-
-        <div class="todo-list">
-          <div class="todo-item row" v-for="todo in todos | orderBy 'completed'">
-            <input class="one column" type="checkbox" v-model="todo.completed">
-            <span class="todo-item-content eight columns" v-bind:class="{'strike': todo.completed}">{{ todo.name }}</span>
-            <button class="right three columns" v-on:click="removeTodo($index)">Delete</button>
-          </div>
-        </ul>
       </div>
     </div>
-  </body>
 
+  </body>
   <script src="/scripts/vendor.bundle.js"></script>
   <script src="/scripts/todo.bundle.js"></script>
 </html>
