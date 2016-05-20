@@ -5,12 +5,14 @@ var app = express();
 
 var body_parser = require('body-parser');
 var apiRouter = require('./api');
+var morgan = require('morgan');
 
 require("./database.js");
 
+app.use(morgan('dev'));
 app.use(body_parser.json());
 
-app.use('/', express.static('../public'));
+app.use('/', express.static('public'));
 app.use('/api', apiRouter);
 
 var port = process.env.PORT || 3000;
