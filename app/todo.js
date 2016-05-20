@@ -1,4 +1,7 @@
 var Vue = require('vue');
+
+Vue.use(require('vue-resource'));
+
 var todo_vue = new Vue({
   el: '#app',
   data: {
@@ -9,6 +12,23 @@ var todo_vue = new Vue({
       { _id: "1sK920", name: 'Setup basic todo app', completed: true }
     ]
   },
+  ready: function () {
+    // GET request
+    this.$http({url: '/api/todos', method: 'GET'}).then(function (response) {
+      var todosToAdd = response.data.todos;
+
+      for (var i = 0; i < todosToAdd.length; i++) {
+        var todo = todosToAdd[i];
+        todo_vue.todos.$set(i, {
+          _id: todo._id,
+          name: todo.name,
+          completed: todo.completed
+        });
+      }
+    }, function (response) {
+      alert('Error, unable to load todos');
+    });
+  },
   methods: {
     addTodo: function () {
       var name = this.newTodo.trim()
@@ -18,13 +38,16 @@ var todo_vue = new Vue({
       }
     },
     removeTodo: function (id) {
+      var hasBeenRemoved = false;
       for (var i = 0; i < this.todos.length; i++) {
         var currentTodoToCheck = this.todos[i];
 
         if (currentTodoToCheck._id == id) {
           this.todos.splice(i, 1);
+          hasBeenRemoved = true;
         }
       }
+      return hasBeenRemoved;
     }
   }
 });

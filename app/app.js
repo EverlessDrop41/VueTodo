@@ -14,10 +14,10 @@ function makeid()
     return text;
 }
 
-for (var i = 3; i < 10; i++) {
-  todo_vue.todos.$set(i, {
-    _id: makeid(),
-    name: makeid(),
-    completed: Math.random() >= 0.8
-  });
-}
+// for (var i = 3; i < 10; i++) {
+//   todo_vue.todos.$set(i, {
+//     _id: makeid(),
+//     name: makeid(),
+//     completed: Math.random() >= 0.8
+//   });
+// }

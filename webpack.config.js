@@ -12,14 +12,14 @@ module.exports = {
         filename: 'todo.bundle.js'
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-          compress: {
-            warnings: true,
-          },
-          output: {
-            comments: false,
-          },
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //   compress: {
+        //     warnings: true,
+        //   },
+        //   output: {
+        //     comments: false,
+        //   },
+        // }),
 
         new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
     ]
